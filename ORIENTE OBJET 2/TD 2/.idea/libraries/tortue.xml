@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="tortue">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Téléchargements/tortue.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Téléchargements/tortue.jar!/" />
+    </SOURCES>
+  </library>
+</component>
