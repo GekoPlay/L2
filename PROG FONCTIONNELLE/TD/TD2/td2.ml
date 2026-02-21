@@ -90,4 +90,14 @@ let rec palindrome_phrase = function phrase ->
  
 
 	(*Question 7 TDs3&4*)
-
+let rec compte_mot = function phrase ->
+	if est_vide phrase || est_vide (reste_mot phrase) then
+		1 (*on met 1 car on considere que la pharse ne commence pas par un espace mais par un mot*)
+	else
+	let char = prem_car phrase in
+if char = " " then
+		 1 + compte_mot(reste_mot phrase)
+else
+	compte_mot(reste_mot phrase);;
+	
+		
