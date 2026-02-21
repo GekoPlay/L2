@@ -14,6 +14,8 @@ let reste_mot_milieu mot =
   else
     String.sub mot 1 (n - 2)
 ;;
+(*TES*)
+
 let rec nb_voyelle = function ch ->
 if est_vide ch then 0 
 else
