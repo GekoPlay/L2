@@ -100,4 +100,18 @@ if char = " " then
 else
 	compte_mot(reste_mot phrase);;
 	
-		
+	
+	(*Question 8 TDs3&4*)
+
+let rec motCache = function phrase -> function mot ->
+	if est_vide phrase  then
+		false
+	else
+		if est_vide mot then
+			true
+		else
+		let phrase_maj = mise_en_ligne phrase in
+		if prem_car phrase_maj = prem_car mot then
+			motCache (reste_mot phrase_maj) (reste_mot mot)
+		else
+			motCache (reste_mot phrase_maj) mot
