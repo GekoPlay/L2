@@ -139,3 +139,57 @@ let rec motCache = function phrase -> function mot ->
 				nb* puissance_acc nb (la_puissance-1);;
 
 	
+	
+
+		(* Question 3.2 Exercice donné en examen *)
+	
+
+
+
+		(* 1. *)
+		let est_pair = function entier ->
+			if entier mod 2 = 0 then
+				true
+			else
+				false;;
+			
+
+	let rec somme_mult2 = function n ->
+		if n = 0 then 0
+		else
+			if est_pair n then
+				n + somme_mult2 (n-1)
+			else
+				somme_mult2 (n-1);;
+
+	(* 2. *)
+	
+		let est_mult3 = function entier ->
+			if entier mod 3 = 0 then
+				true
+			else
+				false;;
+			
+
+	let rec somme_mult3 = function n ->
+		if n = 0 then 0
+		else
+			if est_mult3 n then
+				n + somme_mult3 (n-1)
+			else
+				somme_mult3 (n-1);;
+
+
+
+(* 3. *)
+
+let est_parfaits = fucntion n ->
+	if 
+	let rec somme_parfaits = function n ->
+		if n = 0 then 0
+		else
+			if est_parfaits n then
+				n + somme_parfaits (n-1)
+			else
+				somme_parfaits (n-1);;
+
