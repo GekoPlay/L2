@@ -117,3 +117,25 @@ let rec motCache = function phrase -> function mot ->
 			motCache (reste_mot phrase_maj) (reste_mot mot)
 		else
 			motCache (reste_mot phrase_maj) mot
+
+
+
+	(* -----------------------------------------------TD 5 & 6----------------------------------------- *)
+
+
+
+	let rec puissance = function nb -> function la_puissance ->
+		if la_puissance = 0 then 1
+		else
+		nb * puissance nb (la_puissance - 1);;
+
+
+	let rec puissance_acc = function nb -> function la_puissance ->
+		if la_puissance = 0 then 1
+		else
+			if la_puissance mod 2 = 0 then
+				puissance_acc (puissance nb 2) (la_puissance / 2)
+			else
+				nb* puissance_acc nb (la_puissance-1);;
+
+	
