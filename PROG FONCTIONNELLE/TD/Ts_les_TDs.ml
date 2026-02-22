@@ -204,3 +204,13 @@ let est_parfaits = function n ->
 
 
 
+(* 4. *)
+
+let est_un_diviseur_28 = est_un_diviseur 28;;
+let rec somme_n_nbs  = function n -> function operande ->	
+		if n = 0 then 0
+		else
+			if operande n then
+				n + somme_n_nbs (n-1) operande
+			else
+				somme_n_nbs (n-1) operande;;
