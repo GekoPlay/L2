@@ -183,13 +183,24 @@ let rec motCache = function phrase -> function mot ->
 
 (* 3. *)
 
-let est_parfaits = fucntion n ->
-	if 
-	let rec somme_parfaits = function n ->
-		if n = 0 then 0
+let est_un_diviseur = function n -> function diviseur ->
+	if n mod diviseur = 0 then
+		true
+	else
+		false;;
+
+
+let rec somme_div = function n -> function cmpt ->
+	if cmpt = 1 then 0
+	else
+		if est_un_diviseur n (cmpt-1) then
+			(cmpt-1) + somme_div n (cmpt-1)
 		else
-			if est_parfaits n then
-				n + somme_parfaits (n-1)
-			else
-				somme_parfaits (n-1);;
+			somme_div n (cmpt-1);;
+
+
+let est_parfaits = function n ->
+	somme_div n n = n;;
+
+
 
