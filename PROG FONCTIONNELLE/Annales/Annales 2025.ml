@@ -26,3 +26,5 @@ let rec vecteur_mobilite_douce = function vect_deplac ->
             "1" ^ vecteur_mobilite_douce( reste_mot vect_deplac)
         else
             "0" ^vecteur_mobilite_douce (reste_mot vect_deplac);;
+
+
