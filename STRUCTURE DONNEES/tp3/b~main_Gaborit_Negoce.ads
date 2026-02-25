@@ -23,7 +23,7 @@ package ada_main is
    GNAT_Version_Address : constant System.Address := GNAT_Version'Address;
    pragma Export (C, GNAT_Version_Address, "__gnat_version_address");
 
-   Ada_Main_Program_Name : constant String := "_ada_main" & ASCII.NUL;
+   Ada_Main_Program_Name : constant String := "_ada_tp3_gaborit_negoce" & ASCII.NUL;
    pragma Export (C, Ada_Main_Program_Name, "__gnat_ada_main_program_name");
 
    procedure adainit;
@@ -40,8 +40,8 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#ac408f21#;
-   pragma Export (C, u00001, "mainB");
+   u00001 : constant Version_32 := 16#922c5f39#;
+   pragma Export (C, u00001, "tp3_gaborit_negoceB");
    u00002 : constant Version_32 := 16#7320ff5f#;
    pragma Export (C, u00002, "system__standard_libraryB");
    u00003 : constant Version_32 := 16#50630821#;
@@ -623,7 +623,7 @@ package ada_main is
    --  ada.integer_text_io%b
    --  tp3_file%s
    --  tp3_file%b
-   --  main%b
+   --  tp3_gaborit_negoce%b
    --  END ELABORATION ORDER
 
 end ada_main;

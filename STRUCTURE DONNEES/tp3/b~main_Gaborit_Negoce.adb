@@ -1,7 +1,7 @@
 pragma Warnings (Off);
 pragma Ada_95;
-pragma Source_File_Name (ada_main, Spec_File_Name => "b~main.ads");
-pragma Source_File_Name (ada_main, Body_File_Name => "b~main.adb");
+pragma Source_File_Name (ada_main, Spec_File_Name => "b~main_Gaborit_Negoce.ads");
+pragma Source_File_Name (ada_main, Body_File_Name => "b~main_Gaborit_Negoce.adb");
 pragma Suppress (Overflow_Check);
 with Ada.Exceptions;
 
@@ -270,7 +270,7 @@ package body ada_main is
    end adainit;
 
    procedure Ada_Main_Program;
-   pragma Import (Ada, Ada_Main_Program, "_ada_main");
+   pragma Import (Ada, Ada_Main_Program, "_ada_tp3_gaborit_negoce");
 
    function main
      (argc : Integer;
@@ -305,7 +305,7 @@ package body ada_main is
 
 --  BEGIN Object file/option list
    --   ./tp3_file.o
-   --   ./main.o
+   --   ./main_Gaborit_Negoce.o
    --   -L./
    --   -L/usr/lib/gcc/x86_64-linux-gnu/13/adalib/
    --   -shared

@@ -19,12 +19,12 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 
-U ada_main%b		b~main.adb		9c660dc6 OO PK IL
+U ada_main%b		b~main_Gaborit_Negoce.adb  ff6a098a OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 Z system%s		system.ads		system.ali
 
-U ada_main%s		b~main.ads		4f13d6c7 EE NE OO PK IL
+U ada_main%s		b~main_Gaborit_Negoce.ads  a62bccfd EE NE OO PK IL
 W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
@@ -32,8 +32,8 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 D ada.ads		20240521074738 76789da1 ada%s
 D a-except.ads		20240521074738 2a7d8d70 ada.exceptions%s
 D a-unccon.ads		20240521074738 0e9b276f ada.unchecked_conversion%s
-D b~main.ads		20260224172058 45c5ba18 ada_main%s
-D b~main.adb		20260224172058 f3de3aae ada_main%b
+D b~main_Gaborit_Negoce.ads  20260225092538 acfda022 ada_main%s
+D b~main_Gaborit_Negoce.adb  20260225092538 79ea24d8 ada_main%b
 D system.ads		20240521074738 426dafb8 system%s
 D s-parame.ads		20240904144414 1f39ba92 system.parameters%s
 D s-secsta.ads		20240521074738 578279f5 system.secondary_stack%s
@@ -51,7 +51,7 @@ X 1 ada.ads
 16K9*Ada 20e8 5|6r6
 X 2 a-except.ads
 44K13*Exceptions 295e19 5|6w10
-X 4 b~main.ads
+X 4 b~main_Gaborit_Negoce.ads
 6K9*ada_main 629l5 629e13 5|8b14 316l5 316t13
 8i4*gnat_argc{integer} 12m22 12r22 5|292r10 293m10
 9m4*gnat_argv{6|67M9} 13m22 13r22 5|294m10
@@ -278,7 +278,7 @@ X 4 b~main.ads
 425m4*u00192{42M9} 426r22
 427m4*u00193{42M9} 428r22
 429m4*u00194{42M9} 430r22
-X 5 b~main.adb
+X 5 b~main_Gaborit_Negoce.adb
 10i4 E079{short_integer} 10m46 10r46 222m7 222r15
 11i4 E006{short_integer} 11m46 11r46 230m7 230r15
 12i4 E011{short_integer} 12m46 12r46 225m7 225r15
@@ -351,7 +351,7 @@ X 5 b~main.adb
 161p7*Finalize_Library_Objects{121P9} 162m25 162r25 196m7
 163i7*Binder_Sec_Stacks_Count{natural} 164m27 164r27 191m7
 165m7*Default_Sized_SS_Pool{6|67M9} 166m27 166r27 192m7
-272U14 Ada_Main_Program 273b<ada,_ada_main>24 300s7
+272U14 Ada_Main_Program 273b<ada,_ada_tp3_gaborit_negoce>24 300s7
 281U17*Initialize 281>29 282b<c,__gnat_initialize>25 298s7
 281m29 Addr{6|67M9}
 284U17*Finalize 285b<c,__gnat_finalize>25 302s7
