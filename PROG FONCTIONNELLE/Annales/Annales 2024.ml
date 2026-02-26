@@ -128,3 +128,22 @@ let gagne_match = function marque_match -> function nb_set_match -> function j1 
     j2
 else
 "Match en cours - " ^ score_match marque_match;;
+
+
+
+let rec plus_grand = function score -> function n ->
+  if est_vide score then
+    n
+  else
+    if int_of_string (prem_set score) > n then
+      plus_grand (reste_set score) (int_of_string (prem_set score))
+    else
+      plus_grand (reste_set score) n ;;
+
+let set_le_plus_dispute = function marque_match ->
+  let score = score_match marque_match in
+  let leplugrand = plus_grand score 0 in
+  leplugrand;;
+
+
+ 

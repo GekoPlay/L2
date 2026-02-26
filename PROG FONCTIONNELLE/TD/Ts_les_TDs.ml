@@ -190,21 +190,40 @@ let est_un_diviseur = function n -> function diviseur ->
 		false;;
 
 
-let rec somme_div = function n -> function cmpt ->
-	if cmpt = 1 then 0
-	else
-		if est_un_diviseur n (cmpt-1) then
-			(cmpt-1) + somme_div n (cmpt-1)
-		else
-			somme_div n (cmpt-1);;
-
+let somme_diviseurs =
+  function nb ->
+    let rec somme_div =
+      function nb ->
+        function div ->
+          
+          if div > nb / 2
+                          (* cas de base *)
+                          (* au maximum, un diviseur de nb peut être égal à nb / 2 *)
+                          (* Il ne peut en aucun cas être plus grand. *)
+                          (* La somme est donc nulle dans ce cas puisqu'il n'existe
+                             aucun diviseur plus grand*)
+          then
+            0
+          else
+            if (est_mult div nb) (* si nb est multiple de div *)
+            then
+              (* on a trouvé un diviseur de nb - c'est div - on l'ajoute au résultat *)
+              div + (somme_div nb (div + 1))
+            else
+              (* div n'est pas un diviseur de nb *)
+              (* le res = la somme à partir de div+1 *)
+              (somme_div nb (div + 1))
+    in
+    (* on fait la somme des diviseurs de nb à partir de 1 *)
+    somme_div nb 1;;
 
 let est_parfaits = function n ->
-	somme_div n n = n;;
+	somme_div n (n) = n ;;
 
 
 
 (* 4. *)
+
 
 let est_un_diviseur_28 = est_un_diviseur 28;;
 let rec somme_n_nbs  = function n -> function operande ->	
