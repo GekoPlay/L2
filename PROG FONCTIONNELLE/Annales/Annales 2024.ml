@@ -46,7 +46,7 @@ let rec test_prop =  function generalise-> function ch1->
       test_prop generalise (reste_mot ch1);;
 
 let est_identique = function ch1 ->function ch2 ->
-  ch1 = ch2;;
+  ch1 = ch2;;0
 
 let est_suivant = function ch1 -> function ch2 ->
   suivant ch1 = ch2;;
@@ -57,3 +57,18 @@ let lettre_se_suiventV2 = test_prop est_suivant;;
 
 
 (* (string->string -> string) -> string -> bool *)
+
+
+let rec nb_occur = function charac -> function ch ->
+  if est_vide ch then
+    0
+  else
+    if prem_lettre ch = charac then
+      1+ nb_occur charac (reste_mot ch)
+    else
+      nb_occur charac (reste_mot ch);;  
+  
+let score_set  = function  marque_match ->
+  let j1 = nb_occur "1" marque_match in
+  let j2 = nb_occur "2" marque_match in
+  string_of_int(j1)^string_of_int(j2);;
