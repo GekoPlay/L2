@@ -59,10 +59,98 @@ let rec combine = function f -> function ch1 -> function ch2->
 let corriger_vecteur = combine et_logique;;
 
 
+let rec vecteur_mobilite = function vect_deplac -> function generalise ->
+    if est_vide vect_deplac then
+        ""
+    else
+        if generalise (prem_lettre vect_deplac) then
+            "1" ^ vecteur_mobilite( reste_mot vect_deplac) generalise
+        else
+            "0" ^vecteur_mobilite (reste_mot vect_deplac) generalise;;
+
+
+
+let calculer_primeV0bis  = function vect_deplac -> function generalise ->
+    let vect_mob = vecteur_mobilite vect_deplac generalise in
+    let somme_total = somme vect_mob in
+    somme_total ;;
+
+
+
 let calculer_primeV1 = function vect_deplac -> function vect_ferm ->  function vect_conge ->
     let correc1 = corriger_vecteur vect_deplac vect_ferm in 
     (* on corrige une premeir fois avec jour ferme *)
     let correc2 = corriger_vecteur correc1 vect_conge in
     (* on ocrrige une secodne fois avec conge *)
      calculer_primeV0 correc2;;
+
+
+
+let calculer_primeV3 = function vect_deplac -> function vect_ferm -> function vect_conge -> function generalise ->
+    let correc1 = corriger_vecteur vect_deplac vect_ferm in 
+    let correc2 = corriger_vecteur correc1 vect_conge in
+    calculer_primeV0bis correc2 generalise;;
+
+
+
+let rec vecteur_mobilite = function vect_deplac -> function generalise ->
+    if est_vide vect_deplac then
+        ""
+    else
+        if generalise (prem_lettre vect_deplac) then
+            "1" ^ vecteur_mobilite( reste_mot vect_deplac) generalise
+        else
+            "0" ^vecteur_mobilite (reste_mot vect_deplac) generalise;;
+
+
+
+let calculer_primeV0bis  = function vect_deplac -> function generalise ->
+    let vect_mob = vecteur_mobilite vect_deplac generalise in
+    let somme_total = somme vect_mob in
+    somme_total ;;
+
+
+
+let est_active = function car ->
+    car = "P" || car = "V";;
+
+let part_mobilite_active = function vect_deplac -> function vect_ferm -> function vect_conge ->
+    let prime = calculer_primeV1 vect_deplac vect_ferm vect_conge in
+    let prime_active = calculer_primeV3 vect_deplac vect_ferm vect_conge est_active in
+    let pourcentage = float_of_int(prime_active) /. float_of_int(prime) in
+    pourcentage*.100.;;
+
+
+
+let part_mob_generalise = function vect_deplac -> function vect_ferm -> function vect_conge -> function generalise ->
+    let prime_total = calculer_primeV1 vect_deplac  vect_ferm vect_conge in
+    let prime_generalise = calculer_primeV3 vect_deplac vect_ferm vect_conge generalise in
+    let pourcentage = float_of_int(prime_generalise) /. float_of_int(prime_total) in
+    pourcentage*.100.;;
+
+
+
+    (* Exercice 2 Où l'on joue avec les mots *)
+
+ let rec est_sous_sqc = function ch1 -> function sous_seq ->
+    if est_vide ch1 || est_vide sous_seq then 
+        if est_vide sous_seq then
+            true
+        else
+            false
+    else
+
+        if prem_lettre sous_seq = prem_lettre ch1 then
+            est_sous_sqc (reste_mot ch1) (reste_mot sous_seq)
+        else
+            est_sous_sqc (reste_mot ch1) sous_seq;;
+
+
+
+let verif_sseq_commune = function ch1 -> function ch2 -> function sous_seq ->
+    let bool1 = est_sous_sqc ch1 sous_seq in
+    let bool2 = est_sous_sqc ch2 sous_seq in
+    bool1 && bool2;;
+    
+
 
