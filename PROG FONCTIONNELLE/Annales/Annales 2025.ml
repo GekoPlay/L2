@@ -66,4 +66,3 @@ let calculer_primeV1 = function vect_deplac -> function vect_ferm ->  function v
     (* on ocrrige une secodne fois avec conge *)
      calculer_primeV0 correc2;;
 
-     
