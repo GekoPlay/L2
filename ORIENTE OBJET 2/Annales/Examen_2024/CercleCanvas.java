@@ -47,6 +47,6 @@ class CercleCanvas extends JPanel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        thisrepaint();
+        this.repaint();
     }
 }
