@@ -31,10 +31,9 @@ public class JeuDeLaVieFrame extends JFrame {
             //les focnrionnalités boutons
         bSuivant.addActionListener(new SuivantListener(modele, dessin));
         bAuto.addActionListener(e ->{
-
-            modele.startAutomatic();
+    modele.setManuel(!modele.isManuel());
+});
             
-        });
     }
 
 

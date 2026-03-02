@@ -11,7 +11,6 @@ public class MinuteurCanvas extends JPanel implements PropertyChangeListener{
 
     public MinuteurCanvas(Minuteur m){
         this.modele = m ;
-        modele.addPropertyChangeListener(this); // <--- CETTE LIGNE EST CRUCIALE
     }
 
     @Override
@@ -24,12 +23,14 @@ protected void paintComponent(Graphics g) {
     // Calcul du ratio : temps restant / temps total
     double restant = modele.getRestant();
     double total = modele.getMinutes();
+    System.out.println(total);
     
     // Si total est 3.0 et restant est 1.5, ratio = 0.5 (50%)
     double ratio = (total > 0) ? (restant / total) : 0;
     int a = (int) (ratio * 360);
+    double sous = total *2/10;
 
-    if (restant > 0) {
+    if (restant > sous) {
         g.setColor(Color.GREEN);
     } else {
         g.setColor(Color.RED);

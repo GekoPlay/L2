@@ -19,6 +19,7 @@ public class UpdateListener implements ActionListener {
             String texte = minutes.getText();
             double minu = Double.parseDouble(texte);
             modele.setMinutes(minu);
+            modele.setRestant(minu);
             dessin.repaint();
             System.out.println("Nouveau temps défini : " + minu);
             modele.sauvegarder("test.txt");

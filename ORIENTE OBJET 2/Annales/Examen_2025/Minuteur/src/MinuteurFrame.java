@@ -38,6 +38,8 @@ public class MinuteurFrame extends JFrame {
 
         //dessin
         MinuteurCanvas dessin = new MinuteurCanvas(modele);
+        modele.addPropertyChangeListener(dessin); // <--- CETTE LIGNE EST CRUCIALE
+
         this.getContentPane().add(dessin,BorderLayout.CENTER);
         
         //actionListener Button
@@ -45,11 +47,12 @@ public class MinuteurFrame extends JFrame {
         //actionListener Button
        bStart.addActionListener(e -> modele.StartListener());
         // bStop.addActionListener(new StopListener(modele,dessin));
+            bStop.addActionListener(e -> modele.stop());
+
 
     }
 
         
-        // bStop.addActionListener(new StopListener(modele,dessin));
 
     
 

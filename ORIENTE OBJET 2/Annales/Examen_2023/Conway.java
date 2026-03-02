@@ -25,7 +25,7 @@ private Thread myThread;
         this.pcs = new PropertyChangeSupport(this);
         this.taille = taille;
         this.grille = new boolean[taille][taille];
-        this.manuel = false;
+        this.manuel = true;
         
         // --- INITIALISATION (Remplissage aléatoire pour les tests) ---
         Random rand = new Random();
@@ -45,6 +45,13 @@ private Thread myThread;
     }
 
     public int getTaille() { return taille; }
+
+    public void setManuel(boolean b) {
+        this.manuel = b;
+        if (!this.manuel) {
+                this.startAutomatic();
+            }
+    }
 
     // --- LOGIQUE DU JEU DE LA VIE (Suivant) ---
     public synchronized void suivant() {
