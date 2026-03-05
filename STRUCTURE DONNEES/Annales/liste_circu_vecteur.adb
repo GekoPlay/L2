@@ -34,5 +34,27 @@ package body liste_circu_vecteur is
         end if;
       end inserer;
 
+
+   procedure retirer(L:in out liste_circu_vecteur;V : out vecteur) is
+   pt_int : liste_circu_vecteur := L;
+   begin
+      if not est_vide L then
+         V := pt_int.info;   
+      
+   if L.suiv = L then
+         L := null;
+      else
+         pt_prec := L;
+         while pt_prec.suiv /= L loop
+            pt_prec := pt_prec.suiv;
+         end loop;
+
+         pt_prec.suiv := L.suiv;
+
+         L := L.suiv;
+
+         
+
+
          
 end liste_circu_vecteur;
