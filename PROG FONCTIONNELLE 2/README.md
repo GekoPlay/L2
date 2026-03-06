@@ -131,7 +131,7 @@ let mult_rat = function rat ->
 
 <br>
 
-On va faire ensuite **mult_rat**
+On va faire ensuite **div_rat**
 
 ```
 
@@ -142,5 +142,12 @@ let div_rat = function rat ->
 
 ```
 
+la fonction **print_rat**
 
+```
+let print_rat = function rat ->
+    let num = numer rat
+    and let denum = denom rat in
+    "( " ^ num ^ " , " ^ denum ^ " )";;
+```
 
